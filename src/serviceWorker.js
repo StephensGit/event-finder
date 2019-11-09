@@ -1,3 +1,10 @@
+/**
+ * @Author: stephenmoran
+ * @Date:   2019-11-07T11:08:53+00:00
+ * @Last modified by:   stephenmoran
+ * @Last modified time: 2019-11-07T11:12:59+00:00
+ */
+
 // This optional code is used to register a service worker.
 // register() is not called by default.
 

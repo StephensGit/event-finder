@@ -1,22 +1,941 @@
-.App {
-  text-align: center;
-}
+/**
+ * @Author: stephenmoran
+ * @Date:   2019-10-29T16:35:25+00:00
+ * @Last modified by:   stephenmoran
+ * @Last modified time: 2019-11-08T23:50:29+00:00
+ */
 
-.App-logo {
-  height: 40vmin;
-}
+/* @media (min-width: 766px) { */
+  /*******************************************************************************/
+  /************************************ GENERIC STYLES ***************************/
+  /*******************************************************************************/
+  * {  box-sizing: border-box; margin: 0; padding: 0;  }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  body {
+    /* background-color: #f2f2f2;  */
+    background-color: #f5f5f5;
+    /* background-color: #fff; */
+  }
 
-.App-link {
-  color: #09d3ac;
+  input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+    }
+
+ .errorMsg{
+   margin: 50px;
+ }
+ .App {  font-family: monospace;  }
+
+ /*******************************************************************************/
+ /************************************ NAVBAR ***********************************/
+ /*******************************************************************************/
+ .navbar {
+   background-color: #fff;
+   /* box-shadow: 2px 2px 5px #3292a6; */
+   opacity: 0.9;
+ }
+
+ .navbar .nav-item {
+   font-size: 1 rem;
+   padding-right: 1.2rem;
+ }
+
+ .myNav {
+   padding-top: 5px;
+   padding-bottom: 5px;
+ }
+
+ .logo{
+   /* color: ##d6f3fd; */
+   /* color: #222; */
+   color: #565a5f;
+   letter-spacing: .1rem;
+ }
+
+ .logo:hover {
+   /* color: #0076c7; */
+   color: #74b9ff;
+   /* color: #d6f3fd; */
+   /* color: #373b69; */
+ }
+
+ .logoBold {
+   font-family: 'Roboto', sans-serif;
+   font-weight: 900;
+ }
+ .logoReg {
+   font-family: 'Roboto', sans-serif;
+   font-weight: 300;
+ }
+
+ ul {
+   font-weight: 400;
+   letter-spacing: .1rem;
+ }
+
+ li {
+   display: inline-block;
+   text-decoration: none;
+   background-color: inherit;
+   padding-left: 20px;
+   padding-right: 20px;
+   text-align: right;
+ }
+
+ .nav-link {
+   display: inline-block;
+   color: #565a5f;
+   transition: color 300ms ease;
+ }
+ .nav-link:hover {
+   color: #2aa5fa;
+ }
+
+ .nav-item {
+   display: inline-block;
+   position: relative;
+   color: #565a5f;
+  }
+
+  .nav-item::before {
+    color: #565a5f;
+    content: '';
+    position: absolute;
+    width: 50%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 15%;
+    left: 25%;
+    /* background-color: #0076c7; */
+    background-color: #2aa5fa;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .nav-item:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+ /*******************************************************************************/
+ /************************************ Banner ***********************************/
+ /*******************************************************************************/
+ .banner {
+   /* height: 500px; */
+   /* background: rgba(50, 146, 166, 0.8); */
+   /* background: rgba(161, 215, 253, 0.8); */
+   /* background: rgba(254,222,210, .9); */
+   /* background: rgba(55, 59, 105, .6); */
+   /* background: rgba(235, 240, 239, 1); */
+   /* background: rgba(251, 184, 96, .5); */
+   /* background: rgba(221,243,249,2); */
+   /* background: rgba(181,217,82,.5); */
+   background: rgba(254, 199,179, 1);
+   /* background: rgba(216, 157, 145, 1); */
+   /* background: rgba(253, 87, 40, 1); */
+   margin-top: 70px;
+   padding-top: 100px;
+   padding-bottom: 100px;
+   padding-left: 20px;
+   padding-right: 20px;
+ }
+
+ .labels {
+   /* border-radius: 20px; */
+   color: #0f0100;
+   /* color:#565a5f; */
+   text-align: left;
+   padding-left: 0px;
+
+ }
+
+ .subHeadingBanner {
+   margin-top: 20px;
+   font-size: 20px;
+   font-style: normal;
+   font-weight:300;
+ }
+
+ h1 {
+   font-family: 'Roboto', sans-serif;
+   font-weight: 900;
+   font-size: 60px;
+   line-height: 1;
+   }
+
+ .weather{
+   padding-top: 35px;
+   text-align: center;
+   /* color: #565a5f; */
+   /* color: #fff; */
+   /* color: rgba(0,0,0, .5); */
+   color: rgba(255, 255, 255, .5);
+   line-height: 3rem;
+   /* text-decoration-thickness: from-font; */
+ }
+
+ .weatherCity{
+   font-size: 30px;
+   text-transform: uppercase;
+   /* text-decoration-thickness: from-font; */
+   /* text-decoration-thickness:7px; */
+   /* text-decoration-thickness: 3px; */
+   /* text-decoration-width:3 */
+   text-decoration: underline;
+   /* text-decoration-style: double; */
+ }
+
+ .weatherDesc {
+   font-family: 'Lato', sans-serif;
+   font-size: 20px;
+   font-weight: 300;
+   text-transform: uppercase;
+ }
+ .weatherTemp {
+   font-weight: 700;
+   font-size: 60px;
+ }
+ /*******************************************************************************/
+ /************************************* FORM ************************************/
+ /*******************************************************************************/
+ .formEventsContainer {
+   /* margin: 20px; */
+ }
+ input:focus, input.form-control:focus {
+     outline:none !important;
+     outline-width: 0 !important;
+     box-shadow: none;
+     -moz-box-shadow: none;
+     -webkit-box-shadow: none;
+ }
+
+ *:focus {
+ outline: none;
+ }
+
+ .formCard {
+   text-align: center;
+   margin: -50px;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   padding-left: 30px;
+   padding-right: 30px;
+   background-color: #fff;
+   border-radius: 25px;
+   border: none;
+ }
+ .eventCard {
+   text-align: left;
+   margin: -50px auto;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   /* padding-left: 30px; */
+   background-color: #fff;
+   border-radius: 25px;
+   border: none;
+ }
+
+ label {
+   padding-right: 20px;
+   padding-left: 40px;
+ }
+
+ input {
+   border-width: 0px;
+   border-bottom: 1px solid #eeeeee;
+   outline: none;
+   padding-bottom: 20px;
+   color: #333;
+ }
+
+ .button {
+   border-radius: 25px;
+   margin-top: 20px;
+   width: 100px;
+   background-color: rgba(142, 245, 234, 1);
+   color: #fff;
+   transition: background-color 1000ms ease-in;
+   /* transition: background-color 1000ms ease-out; */
+   transition: color 500ms ease-in;
+   transition: color 500ms ease-out;
+   /* height: 40px; */
+ }
+
+ .button:hover {
+   /* background-color: #fff; */
+   background-color: rgba(73, 197, 182, 1);
+   transition: background-color 500ms ease-out;
+   /* transition: color 1000ms ease-out; */
+   /* color: #ff5276; */
+   /* color: #8ef5ea; */
+   color: #fff;
+ }
+
+ .button:after {
+   /* background-color: red; */
+   color: #8ef5ea;
+   transition: background-color 1000ms ease-out;
+   transition: color 1000ms ease-out;
+ }
+
+ /*******************************************************************************/
+ /************************************ EVENTS ***********************************/
+ /*******************************************************************************/
+
+ .events {
+   /* height: 400px; */
+   margin-top: 100px;
+   padding-top: 0px;
+   padding-bottom: 20px;
+   border: none;
+ }
+
+ .eventCard {
+   text-align: left;
+   color: #333;
+   /* padding: 0px; */
+ }
+
+ .card-body {
+   padding: 0px;
+ }
+
+ .genre {
+   font-family: 'Roboto Mono', monospace;
+   font-size: 16px;
+   font-weight: 300;
+   /* color: #2aa5fa; */
+   color: #888888;
+   margin: 0;
+   padding-left: 20px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+ }
+
+ .genre:after {
+     content: ""; /* This is necessary for the pseudo element to work. */
+     display: block; /* This will put the pseudo element on its own line. */
+     margin-right: 20px; /* This will center the border. */
+     width: 90%; /* Change this to whatever width you want. */
+     padding-bottom: 20px; /* This creates some space between the element and the border. */
+     border-bottom: 1px solid #f6f6f6; /* This creates the border. Replace black with whatever color you want. */
+ }
+
+ .dayName {
+   font-family: 'Playfair Display', serif;
+   font-size: 16px;
+   font-weight: normal;
+   color: #000;
+   /* color: #888888; */
+   margin: 0;
+   padding-left: 20px;
+   padding-top: 20px;
+ }
+ .eventh1, .modalh2, .eventName {
+   font-family: 'Playfair Display', serif;
+   font-size: 20px;
+   font-weight: 700;
+   text-transform: uppercase;
+   color: #000;
+   margin: 0;
+   padding-left: 20px;
+   padding-right: 20px;
+   /* padding-top: 20px; */
+   /* border-top: 1px solid #f2f2f2; */
+ }
+
+ .venue{
+   font-family: 'Lato', sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   /* color: #888888; */
+   color: #333;
+   margin: 0;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-top: 20px;
+ }
+
+ .card-img-top{
+   border-top-left-radius: 25px;
+   border-top-right-radius: 25px;
+ }
+
+ a {
+   color: #fff;
+   transition: color 300ms ease;
+ }
+ a:hover {
+   color: #adb1bf;
+   text-decoration: none;
+ }
+
+ .eventButton {
+   width: 100px;
+   float: left;
+   /* border: 1px solid #ff5276; */
+   border: 1px solid #74b9ff;
+   border-radius: 25px;
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-top: 20px;
+   /* width: 100px; */
+   /* background-color: #ff5276; */
+   background-color: #74b9ff;
+   color: #fff;
+   transition: background-color 1000ms ease-in;
+   /* transition: background-color 1000ms ease-out; */
+   transition: color 500ms ease-in;
+   transition: color 500ms ease-out;
+   /* height: 40px; */
+ }
+
+ .eventButton:hover {
+   background-color: #fff;
+   border: 1px solid #74b9ff;
+   color: #74b9ff;
+   /* transition: background-color 500ms ease-out; */
+   /* text-decoration: none; */
+   /* transition: color 1000ms ease-out; */
+
+ }
+
+ .eventButton:after {
+   background-color: #74b9ff;
+   color: #fff;
+   /* transition: background-color 1000ms ease-out; */
+   transition: color 1000ms ease-out;
+ }
+
+ #modalCustom {
+   font-family: 'Lato', sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   color: #333;
+   border-radius: 25%;
+   padding: 20px;
+ }
+
+ .modaleHeader {
+   background-color:rgba(254, 199,179, 1);
+   color: #0f0100;
+   border: none;
+ }
+ .modalh2 {
+   padding: 10px 20px 10px 10px;
+   letter-spacing: .2rem;
+ }
+ .locationIcon, .calendarIcon{
+   margin-right: 20px;
+ }
+ .modalButton {
+   margin-left: 20px;
+ }
+
+ .modal {
+   /* background-color: red; */
+ }
+
+ .modal-backdrop {
+    /* background-color: red; */
+ }
+
+ .content {
+   min-height: calc(100vh - 80px);
+ }
+
+ .footer {
+   margin-top: 100px;
+   background-color: rgba(255, 255, 255, 1);
+   border-top: 1px solid rgba(86, 90, 95, .1);
+   /* color: #565a5f; */
+   color: rgba(86, 90, 95, .5);
+   font-size: 14px;
+   letter-spacing: .1rem;
+   height: 60px;
+   width: 100%;
+   /* position:fixed; */
+   /* bottom:0; */
+ }
+ .footerLink {
+   color: rgba(32, 33, 33, .5);
+   /* color: #202121; */
+   font-weight: bold;
+ }
+/* } */
+
+/* If screen is greater than 600px  */
+@media (min-width: 600px) {
+
+  /*******************************************************************************/
+  /************************************ GENERIC STYLES ***************************/
+  /*******************************************************************************/
+  * {  box-sizing: border-box; margin: 0; padding: 0;  }
+
+  body {
+    /* background-color: #f2f2f2;  */
+    background-color: #f5f5f5;
+    /* background-color: #fff; */
+  }
+
+  input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+    }
+
+ .errorMsg{
+   margin: 50px;
+ }
+ .App {  font-family: monospace;  }
+
+ /*******************************************************************************/
+ /************************************ NAVBAR ***********************************/
+ /*******************************************************************************/
+ .navbar {
+   background-color: #fff;
+   /* box-shadow: 2px 2px 5px #3292a6; */
+   opacity: 0.9;
+ }
+
+ .navbar .nav-item {
+   font-size: 1 rem;
+   padding-right: 1.2rem;
+ }
+
+ .myNav {
+   padding-top: 5px;
+   padding-bottom: 5px;
+ }
+
+ .logo{
+   /* color: ##d6f3fd; */
+   /* color: #222; */
+   color: #565a5f;
+   letter-spacing: .1rem;
+ }
+
+ .logo:hover {
+   /* color: #0076c7; */
+   color: #74b9ff;
+   /* color: #d6f3fd; */
+   /* color: #373b69; */
+ }
+
+ .logoBold {
+   font-family: 'Roboto', sans-serif;
+   font-weight: 900;
+ }
+ .logoReg {
+   font-family: 'Roboto', sans-serif;
+   font-weight: 300;
+ }
+
+ ul {
+   font-weight: 400;
+   letter-spacing: .1rem;
+ }
+
+ li {
+   display: inline-block;
+   text-decoration: none;
+   background-color: inherit;
+   padding-left: 20px;
+   padding-right: 20px;
+   text-align: right;
+ }
+
+ .nav-link {
+   display: inline-block;
+   color: #565a5f;
+   transition: color 300ms ease;
+ }
+ .nav-link:hover {
+   color: #2aa5fa;
+ }
+
+ .nav-item {
+   display: inline-block;
+   position: relative;
+   color: #565a5f;
+  }
+
+  .nav-item::before {
+    color: #565a5f;
+    content: '';
+    position: absolute;
+    width: 50%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 15%;
+    left: 25%;
+    /* background-color: #0076c7; */
+    background-color: #2aa5fa;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .nav-item:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+ /*******************************************************************************/
+ /************************************ Banner ***********************************/
+ /*******************************************************************************/
+ .banner {
+   /* height: 500px; */
+   /* background: rgba(50, 146, 166, 0.8); */
+   /* background: rgba(161, 215, 253, 0.8); */
+   /* background: rgba(254,222,210, .9); */
+   /* background: rgba(55, 59, 105, .6); */
+   /* background: rgba(235, 240, 239, 1); */
+   /* background: rgba(251, 184, 96, .5); */
+   /* background: rgba(221,243,249,2); */
+   /* background: rgba(181,217,82,.5); */
+   background: rgba(254, 199,179, 1);
+   /* background: rgba(216, 157, 145, 1); */
+   /* background: rgba(253, 87, 40, 1); */
+   margin-top: 70px;
+   padding-top: 100px;
+   padding-bottom: 100px;
+   padding-left: 0px;
+ }
+
+ .labels {
+   /* border-radius: 20px; */
+   color: #0f0100;
+   /* color:#565a5f; */
+   text-align: left;
+   padding-left: 0px;
+
+ }
+
+ .subHeadingBanner {
+   margin-top: 20px;
+   font-size: 20px;
+   font-style: normal;
+   font-weight:300;
+ }
+
+ h1 {
+   font-family: 'Roboto', sans-serif;
+   font-weight: 900;
+   font-size: 60px;
+   line-height: 1;
+   }
+
+ .weather{
+   padding-top: 35px;
+   text-align: center;
+   /* color: #565a5f; */
+   /* color: #fff; */
+   /* color: rgba(0,0,0, .5); */
+   color: rgba(255, 255, 255, .5);
+   line-height: 3rem;
+   /* text-decoration-thickness: from-font; */
+ }
+
+ .weatherCity{
+   font-size: 30px;
+   text-transform: uppercase;
+   /* text-decoration-thickness: from-font; */
+   /* text-decoration-thickness:7px; */
+   /* text-decoration-thickness: 3px; */
+   /* text-decoration-width:3 */
+   text-decoration: underline;
+   /* text-decoration-style: double; */
+ }
+
+ .weatherDesc {
+   font-family: 'Lato', sans-serif;
+   font-size: 20px;
+   font-weight: 300;
+   text-transform: uppercase;
+ }
+ .weatherTemp {
+   font-weight: 700;
+   font-size: 60px;
+ }
+ /*******************************************************************************/
+ /************************************* FORM ************************************/
+ /*******************************************************************************/
+ .formEventsContainer {
+   padding: 0px;
+ }
+ input:focus, input.form-control:focus {
+     outline:none !important;
+     outline-width: 0 !important;
+     box-shadow: none;
+     -moz-box-shadow: none;
+     -webkit-box-shadow: none;
+ }
+
+ *:focus {
+ outline: none;
+ }
+
+ .formCard {
+   text-align: center;
+   margin: -50px auto;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   /* padding-left: 30px; */
+   background-color: #fff;
+   border-radius: 25px;
+   border: none;
+ }
+ .eventCard {
+   text-align: left;
+   margin: -50px auto;
+   padding-top: 30px;
+   padding-bottom: 30px;
+   /* padding-left: 30px; */
+   background-color: #fff;
+   border-radius: 25px;
+   border: none;
+ }
+
+ label {
+   padding-right: 20px;
+   padding-left: 40px;
+ }
+
+ input {
+   border-width: 0px;
+   border-bottom: 1px solid #eeeeee;
+   outline: none;
+   padding-bottom: 5px;
+   color: #333;
+ }
+
+ .button {
+   margin-left: 40px;
+   /* border: 1px solid #ff5276; */
+   /* border: 1px solid #8ef5ea; */
+   border-radius: 25px;
+   width: 100px;
+   /* background-color: #ff5276; */
+   /* background-color: rgba(216, 157, 145, 1); */
+   background-color: rgba(142, 245, 234, 1);
+   color: #fff;
+   transition: background-color 1000ms ease-in;
+   /* transition: background-color 1000ms ease-out; */
+   transition: color 500ms ease-in;
+   transition: color 500ms ease-out;
+   /* height: 40px; */
+ }
+
+ .button:hover {
+   /* background-color: #fff; */
+   background-color: rgba(73, 197, 182, 1);
+   transition: background-color 500ms ease-out;
+   /* transition: color 1000ms ease-out; */
+   /* color: #ff5276; */
+   /* color: #8ef5ea; */
+   color: #fff;
+ }
+
+ .button:after {
+   /* background-color: red; */
+   color: #8ef5ea;
+   transition: background-color 1000ms ease-out;
+   transition: color 1000ms ease-out;
+ }
+
+ /*******************************************************************************/
+ /************************************ EVENTS ***********************************/
+ /*******************************************************************************/
+
+ .events {
+   /* height: 400px; */
+   margin-top: 100px;
+   padding-top: 0px;
+   padding-bottom: 20px;
+   border: none;
+ }
+
+ .eventCard {
+   text-align: left;
+   color: #333;
+   /* padding: 0px; */
+ }
+
+ .card-body {
+   padding: 0px;
+ }
+
+ .genre {
+   font-family: 'Roboto Mono', monospace;
+   font-size: 16px;
+   font-weight: 300;
+   /* color: #2aa5fa; */
+   color: #888888;
+   margin: 0;
+   padding-left: 20px;
+   padding-top: 20px;
+   padding-bottom: 20px;
+ }
+
+ .genre:after {
+     content: ""; /* This is necessary for the pseudo element to work. */
+     display: block; /* This will put the pseudo element on its own line. */
+     margin-right: 20px; /* This will center the border. */
+     width: 90%; /* Change this to whatever width you want. */
+     padding-bottom: 20px; /* This creates some space between the element and the border. */
+     border-bottom: 1px solid #f6f6f6; /* This creates the border. Replace black with whatever color you want. */
+ }
+
+ .dayName {
+   font-family: 'Playfair Display', serif;
+   font-size: 16px;
+   font-weight: normal;
+   color: #000;
+   /* color: #888888; */
+   margin: 0;
+   padding-left: 20px;
+   padding-top: 20px;
+ }
+ .eventh1, .modalh2, .eventName {
+   font-family: 'Playfair Display', serif;
+   font-size: 20px;
+   font-weight: 700;
+   text-transform: uppercase;
+   color: #000;
+   margin: 0;
+   padding-left: 20px;
+   padding-right: 20px;
+   /* padding-top: 20px; */
+   /* border-top: 1px solid #f2f2f2; */
+ }
+
+ .venue{
+   font-family: 'Lato', sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   /* color: #888888; */
+   color: #333;
+   margin: 0;
+   padding-left: 20px;
+   padding-right: 20px;
+   padding-top: 20px;
+ }
+
+ .card-img-top{
+   border-top-left-radius: 25px;
+   border-top-right-radius: 25px;
+ }
+
+ a {
+   color: #fff;
+   transition: color 300ms ease;
+ }
+ a:hover {
+   color: #adb1bf;
+   text-decoration: none;
+ }
+
+ .eventButton {
+   width: 100px;
+   float: left;
+   /* border: 1px solid #ff5276; */
+   border: 1px solid #74b9ff;
+   border-radius: 25px;
+   margin-left: 20px;
+   margin-right: 20px;
+   margin-top: 20px;
+   /* width: 100px; */
+   /* background-color: #ff5276; */
+   background-color: #74b9ff;
+   color: #fff;
+   transition: background-color 1000ms ease-in;
+   /* transition: background-color 1000ms ease-out; */
+   transition: color 500ms ease-in;
+   transition: color 500ms ease-out;
+   /* height: 40px; */
+ }
+
+ .eventButton:hover {
+   background-color: #fff;
+   border: 1px solid #74b9ff;
+   color: #74b9ff;
+   /* transition: background-color 500ms ease-out; */
+   /* text-decoration: none; */
+   /* transition: color 1000ms ease-out; */
+
+ }
+
+ .eventButton:after {
+   background-color: #74b9ff;
+   color: #fff;
+   /* transition: background-color 1000ms ease-out; */
+   transition: color 1000ms ease-out;
+ }
+
+ #modalCustom {
+   font-family: 'Lato', sans-serif;
+   font-size: 16px;
+   font-weight: 300;
+   color: #333;
+   border-radius: 25%;
+   padding: 20px;
+ }
+
+ .modaleHeader {
+   background-color:rgba(254, 199,179, 1);
+   color: #0f0100;
+   border: none;
+ }
+ .modalh2 {
+   padding: 10px 20px 10px 10px;
+   letter-spacing: .2rem;
+ }
+ .locationIcon, .calendarIcon{
+   margin-right: 20px;
+ }
+ .modalButton {
+   margin-left: 20px;
+ }
+
+ .modal {
+   /* background-color: red; */
+ }
+
+ .modal-backdrop {
+    /* background-color: red; */
+ }
+
+ .content {
+   min-height: calc(100vh - 80px);
+ }
+
+ .footer {
+   margin-top: 100px;
+   background-color: rgba(255, 255, 255, 1);
+   border-top: 1px solid rgba(86, 90, 95, .1);
+   /* color: #565a5f; */
+   color: rgba(86, 90, 95, .5);
+   font-size: 14px;
+   letter-spacing: .1rem;
+   height: 60px;
+   width: 100%;
+   /* position:fixed; */
+   /* bottom:0; */
+ }
+ .footerLink {
+   color: rgba(32, 33, 33, .5);
+   /* color: #202121; */
+   font-weight: bold;
+ }
+
 }
