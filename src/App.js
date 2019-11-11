@@ -2,7 +2,7 @@
  * @Author: stephenmoran
  * @Date:   2019-10-29T16:35:25+00:00
  * @Last modified by:   stephenmoran
- * @Last modified time: 2019-11-08T23:38:33+00:00
+ * @Last modified time: 2019-11-09T23:26:33+00:00
  */
 
 
@@ -17,8 +17,6 @@ import Form from './components/form/Form';
 import Events from './components/events/Events';
 import Weather from './components/header/Weather';
 import Footer from './components/footer/Footer';
-
-// import axios from 'axios';
 
 import './App.css';
 
@@ -66,29 +64,31 @@ formSubmit(event) {
          console.log("Error");
          console.log(error);
          this.setState({
-           error
+           error: null
          });
        }
      )
-     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&appid=bd4789aa540b715e0e15e1da1900eea4`)
-       .then(res => res.json())
-       .then(
-         (result) => {
-           console.log(result);
-           this.setState({
-             error: null,
-             weatherTemp:result.main.temp,
-             weatherDesc:result.weather[0].description
-           });
-           console.log(this.state.weatherDesc);
-         },
-         (error) => {
-           console.log("Error");
-           this.setState({
-             error
-           });
-         }
-       )
+
+          fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&appid=bd4789aa540b715e0e15e1da1900eea4`)
+          .then(res => res.json())
+          .then(
+            (result) => {
+              console.log(result);
+              this.setState({
+                error: null,
+                weatherTemp:(result.main.temp === undefined ) ? "" : result.main.temp,
+                weatherDesc:(result.weather[0].description === undefined ) ? "" : result.weather[0].description
+              });
+              console.log(this.state.weatherDesc);
+            },
+
+            (error) => {
+              console.log("Error");
+              this.setState({
+                error:null
+              });
+            }
+          )
  }
 
   render() {
@@ -101,7 +101,9 @@ formSubmit(event) {
                 <div className="row">
                   <Banner/>
                   <Route exact path="/" render={props => (
-                  <Weather weatherTemp={this.state.weatherTemp} weatherDesc={this.state.weatherDesc} city={this.state.city}/>
+                    <React.Fragment>
+                    { this.state.error ? <Weather weatherTemp="" weatherDesc="" city="" /> : <Weather weatherTemp={this.state.weatherTemp} weatherDesc={this.state.weatherDesc} city={this.state.city} /> }
+                    </React.Fragment>
                   )}/>
                 </div>
               </div>
@@ -114,12 +116,19 @@ formSubmit(event) {
                 <div className ="container formEventsContainer">
                 <div className="row">
                   <Form formSubmit={this.formSubmit} handleChange={this.handleChange}/>
-                    { this.state.error ? <h1 className="errorMsg"> Enter a valid value </h1> : <Events events={this.state.events} error={this.state.error} /> }
+                    { (this.state.error) ?
+                      <React.Fragment>
+                            <h1 className="Oops"> Oops Something went wrong...<span className = "errorMsg">Please try again.</span></h1>
+
+                      </React.Fragment>
+                      :
+                      <Events events={this.state.events} error={this.state.error} /> }
                   </div>
                 </div>
-                
+
               )}/>
             </div>
+
             <Footer />
         </BrowserRouter>
       )

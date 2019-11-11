@@ -2,7 +2,7 @@
  * @Author: stephenmoran
  * @Date:   2019-10-29T16:35:25+00:00
  * @Last modified by:   stephenmoran
- * @Last modified time: 2019-11-08T23:50:29+00:00
+ * @Last modified time: 2019-11-09T22:26:14+00:00
  */
 
 /* @media (min-width: 766px) { */
@@ -28,7 +28,21 @@
     }
 
  .errorMsg{
-   margin: 50px;
+
+   padding-top: 50px;
+   padding-left: 0px;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 400;
+   font-size: 30px;
+   font-style: normal;
+ }
+.Oops{
+   padding-top: 100px;
+   padding-left: 25px;
+   font-family: 'Roboto', sans-serif;
+   font-weight: 600;
+   font-size: 30px;
+   font-style: normal;
  }
  .App {  font-family: monospace;  }
 
@@ -937,5 +951,6 @@
    /* color: #202121; */
    font-weight: bold;
  }
+
 
 }

@@ -2,7 +2,7 @@
  * @Author: stephenmoran
  * @Date:   2019-10-29T17:24:37+00:00
  * @Last modified by:   stephenmoran
- * @Last modified time: 2019-11-08T23:29:43+00:00
+ * @Last modified time: 2019-11-09T22:42:17+00:00
  */
 
 import React from "react";
@@ -31,7 +31,7 @@ class Form extends React.Component {
                 type="text"
                 value={this.props.startDate}
                 onChange={this.props.handleChange}
-                placeholder="Start Date..."
+                placeholder="Start Date - (2019-10-21)"
               />
             </label>
             <label className="label col-lg-3 col-md-3">
@@ -41,7 +41,7 @@ class Form extends React.Component {
                 type="text"
                 value={this.props.endDate}
                 onChange={this.props.handleChange}
-                placeholder="End Date..."
+                placeholder="End Date - (2019-10-22)"
               />
             </label>
             <button className="btn button col-lg-3 col-md-3" type="submit" value="Submit">{" "}Search{" "}
