@@ -2,7 +2,7 @@
  * @Author: stephenmoran
  * @Date:   2019-10-29T17:17:07+00:00
  * @Last modified by:   stephenmoran
- * @Last modified time: 2019-11-08T23:37:47+00:00
+ * @Last modified time: 2019-11-12T00:13:51+00:00
  */
 
 import React from "react";
@@ -59,7 +59,7 @@ class EventItem extends React.Component {
       eventNameString = eventNameString.substring(0, 22);
 
     let genreUndefined = this.props.event.classifications[0].genre.name;
-    if ((genreUndefined = "Undefined")) {
+    if ((genreUndefined == "Undefined")) {
       genreUndefined = "Live Show";
     } else {
       genreUndefined = this.props.event.classifications[0].genre.name;
