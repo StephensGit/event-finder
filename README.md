@@ -13,3 +13,5 @@ Below is instructions to get the application running locally on your own compute
 4) npm start
 
 5) The application will start by in your default browser of choice after these instructions
+
+https://eventfinder-f5e02.firebaseapp.com/
